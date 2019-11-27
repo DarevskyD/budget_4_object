@@ -19,7 +19,7 @@ let appData = {
   income: [],
   timeData: time,
   savings: true,
-  chooseExpenses: function () {
+  chooseExpenses: function() {
     for (let i = 0; i < 2; i++) {
       let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
         b = +prompt("Во сколько обойдется?", "");
@@ -39,11 +39,11 @@ let appData = {
       }
     }
   },
-  detectDayBudget: function () {
+  detectDayBudget: function() {
     appData.moneyPerDay = (appData.budget / 30).toFixed();
     alert("Ежедневный бюджет " + appData.moneyPerDay);
   },
-  detectLevel: function () {
+  detectLevel: function() {
     if (appData.moneyPerDay < 500) {
       console.log("Минимальный уровень достатка");
     } else if (appData.moneyPerDay > 500 && appData.moneyPerDay < 2000) {
@@ -52,7 +52,7 @@ let appData = {
       console.log("Высокий уровень достатка");
     } else "Произошла ошибка";
   },
-  checkSavings: function () {
+  checkSavings: function() {
     if (appData.savings == true) {
       let save = +prompt("Какова сумма накоплений?"),
         percent = +prompt("Под какой процент?");
@@ -61,14 +61,14 @@ let appData = {
       alert("Доход в месяц с депозита: " + appData.monthIncome);
     }
   },
-  chooseOptExpenses: function () {
+  chooseOptExpenses: function() {
     for (let i = 1; i <= 3; i++) {
       let optionalItem = prompt("Статья необязательных расходов?");
       appData.optionalExpenses[i] = optionalItem;
       console.log(appData.optionalExpenses);
     }
   },
-  chooseIncome: function () {
+  chooseIncome: function() {
     // for (let i = 0; i < 1; i++) {
     //   let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
     //   items = items[i];
@@ -79,9 +79,15 @@ let appData = {
     //     console.log("Все прошло хорошо!");
     //   }
     // };
-    let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+    let items = prompt(
+      "Что принесет дополнительный доход? (Перечислите через запятую)",
+      ""
+    );
     while (typeof items != "string" || typeof items == null || items == "") {
-      items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+      items = prompt(
+        "Что принесет дополнительный доход? (Перечислите через запятую)",
+        ""
+      );
     }
     appData.income = items.split(", ");
     appData.income.push(prompt("Может что-то ещё?", ""));
